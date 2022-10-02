@@ -1,5 +1,6 @@
 package com.masai.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,16 @@ public class BookServiceImpl implements BookService {
 		}
 		
 		
+	}
+
+	@Override
+	public List<Book> getAllBook() throws BookNotFoundException {
+		
+		List<Book> allBook = bookDao.findAll();
+		if(allBook.size() == 0)
+			throw  new BookNotFoundException("No book available");
+		else
+			return allBook;
 	}
 
 }

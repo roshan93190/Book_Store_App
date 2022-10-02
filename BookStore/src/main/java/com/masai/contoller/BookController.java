@@ -1,5 +1,7 @@
 package com.masai.contoller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +29,13 @@ public class BookController {
 	public Book getBookById( @PathVariable("bookId") Integer bookId ) {
 		
 		return bookService.getBookById(bookId);
+	}
+	
+	@GetMapping("bookservice/books")
+	public List<Book> getAllBooks(  ) {
+		
+		return bookService.getAllBook();
+		
 	}
 	
 	
