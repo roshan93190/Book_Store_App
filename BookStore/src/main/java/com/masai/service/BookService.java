@@ -11,6 +11,7 @@ public interface BookService {
 	public Book saveBook(Book book);
 	public Book getBookById(Integer bookId) throws BookNotFoundException;
 	public List<Book> getAllBook() throws BookNotFoundException;
+	public Book deleteBookBybookId(Integer bookId) throws BookNotFoundException;
 	
 	
 }

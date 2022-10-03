@@ -47,4 +47,12 @@ public class BookServiceImpl implements BookService {
 			return allBook;
 	}
 
+	@Override
+	public Book deleteBookBybookId(Integer bookId) throws BookNotFoundException {
+		
+		 Book existingBook = bookDao.findById(bookId).orElseThrow(() -> new BookNotFoundException("Book not found woth bookId :"+bookId));
+		      bookDao.delete(existingBook);
+		      return existingBook;
+	}
+
 }
