@@ -12,6 +12,7 @@ public interface BookService {
 	public Book getBookById(Integer bookId) throws BookNotFoundException;
 	public List<Book> getAllBook() throws BookNotFoundException;
 	public Book deleteBookBybookId(Integer bookId) throws BookNotFoundException;
+	public Book updateBook(Book book) throws BookNotFoundException;
 	
 	
 }

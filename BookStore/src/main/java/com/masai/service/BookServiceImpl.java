@@ -55,4 +55,18 @@ public class BookServiceImpl implements BookService {
 		      return existingBook;
 	}
 
+	@Override
+	public Book updateBook(Book book) throws BookNotFoundException {
+		Optional<Book> existingBook = bookDao.findById(book.getBookId());
+		if(existingBook.isPresent()) {
+			Book updatedBook = existingBook.get();
+			return bookDao.save(updatedBook);
+		}
+		else {
+			throw new BookNotFoundException("No book available with given details");
+		}
+	}
+
+	
+
 }
